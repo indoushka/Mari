@@ -1,0 +1,237 @@
+﻿[PMC Code v5.0.5]|F3||1|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Groups=Start:1
+1|Turn On|Macro1|1|0|SetTimer|||||
+2|WinActivate||1|333|WinActivate||madhavas.net - Opera ahk_class Chrome_WidgetWin_1|||
+3|[Pause]||1|1125|Sleep|||||
+4|Move|181, 213, 0|1|0|Click|||||
+5|Move|201, 203, 0|1|0|Click|||||
+6|[Pause]||1|16|Sleep|||||
+7|Move|241, 187, 0|1|0|Click|||||
+8|Move|287, 169, 0|1|0|Click|||||
+9|Move|331, 154, 0|1|0|Click|||||
+10|[Pause]||1|15|Sleep|||||
+11|Move|367, 141, 0|1|0|Click|||||
+12|Move|397, 131, 0|1|0|Click|||||
+13|[Pause]||1|16|Sleep|||||
+14|Move|422, 122, 0|1|0|Click|||||
+15|[Pause]||1|15|Sleep|||||
+16|Move|443, 113, 0|1|0|Click|||||
+17|Move|457, 107, 0|1|0|Click|||||
+18|Move|468, 104, 0|1|0|Click|||||
+19|[Pause]||1|16|Sleep|||||
+20|Move|475, 102, 0|1|0|Click|||||
+21|[Pause]||1|16|Sleep|||||
+22|Move|480, 100, 0|1|0|Click|||||
+23|Move|484, 98, 0|1|0|Click|||||
+24|[Pause]||1|15|Sleep|||||
+25|Move|490, 95, 0|1|0|Click|||||
+26|[Pause]||1|16|Sleep|||||
+27|Move|500, 89, 0|1|0|Click|||||
+28|[Pause]||1|16|Sleep|||||
+29|Move|509, 86, 0|1|0|Click|||||
+30|Move|517, 82, 0|1|0|Click|||||
+31|[Pause]||1|15|Sleep|||||
+32|Move|527, 78, 0|1|0|Click|||||
+33|Move|535, 73, 0|1|0|Click|||||
+34|[Pause]||1|16|Sleep|||||
+35|Move|544, 69, 0|1|0|Click|||||
+36|Move|552, 65, 0|1|0|Click|||||
+37|[Pause]||1|15|Sleep|||||
+38|Move|560, 62, 0|1|0|Click|||||
+39|[Pause]||1|16|Sleep|||||
+40|Move|574, 55, 0|1|0|Click|||||
+41|[Pause]||1|16|Sleep|||||
+42|Move|581, 50, 0|1|0|Click|||||
+43|Move|593, 42, 0|1|0|Click|||||
+44|[Pause]||1|15|Sleep|||||
+45|Move|599, 38, 0|1|0|Click|||||
+46|[Pause]||1|16|Sleep|||||
+47|Move|607, 34, 0|1|0|Click|||||
+48|[Pause]||1|16|Sleep|||||
+49|Move|611, 31, 0|1|0|Click|||||
+50|[Pause]||1|15|Sleep|||||
+51|Move|614, 30, 0|1|0|Click|||||
+52|[Pause]||1|16|Sleep|||||
+53|Move|617, 27, 0|1|0|Click|||||
+54|[Pause]||1|15|Sleep|||||
+55|Move|624, 22, 0|1|0|Click|||||
+56|[Pause]||1|16|Sleep|||||
+57|Move|627, 20, 0|1|0|Click|||||
+58|Move|631, 18, 0|1|0|Click|||||
+59|Move|633, 17, 0|1|0|Click|||||
+60|[Pause]||1|16|Sleep|||||
+61|Move|633, 16, 0|1|0|Click|||||
+62|[Pause]||1|312|Sleep|||||
+63|Right Move & Click|633, 16 Right, Down|1|0|Click|||||
+64|[Pause]||1|125|Sleep|||||
+65|Right Move & Click|633, 16 Right, Up|1|0|Click|||||
+66|[Pause]||1|281|Sleep|||||
+67|Move|635, 20, 0|1|0|Click|||||
+68|[Pause]||1|16|Sleep|||||
+69|Move|638, 25, 0|1|0|Click|||||
+70|[Pause]||1|16|Sleep|||||
+71|Move|642, 31, 0|1|0|Click|||||
+72|[Pause]||1|15|Sleep|||||
+73|Move|645, 35, 0|1|0|Click|||||
+74|[Pause]||1|16|Sleep|||||
+75|Move|647, 39, 0|1|0|Click|||||
+76|Move|648, 41, 0|1|0|Click|||||
+77|[Pause]||1|16|Sleep|||||
+78|Move|648, 42, 0|1|0|Click|||||
+79|[Pause]||1|15|Sleep|||||
+80|Move|651, 48, 0|1|0|Click|||||
+81|[Pause]||1|16|Sleep|||||
+82|Move|654, 52, 0|1|0|Click|||||
+83|[Pause]||1|15|Sleep|||||
+84|Move|657, 57, 0|1|0|Click|||||
+85|[Pause]||1|16|Sleep|||||
+86|Move|657, 59, 0|1|0|Click|||||
+87|Move|658, 59, 0|1|0|Click|||||
+88|[Pause]||1|16|Sleep|||||
+89|Move|658, 60, 0|1|0|Click|||||
+90|[Pause]||1|15|Sleep|||||
+91|Move|659, 63, 0|1|0|Click|||||
+92|[Pause]||1|16|Sleep|||||
+93|Move|660, 64, 0|1|0|Click|||||
+94|[Pause]||1|16|Sleep|||||
+95|Move|661, 65, 0|1|0|Click|||||
+96|[Pause]||1|15|Sleep|||||
+97|Move|661, 66, 0|1|0|Click|||||
+98|[Pause]||1|31|Sleep|||||
+99|Move|661, 68, 0|1|0|Click|||||
+100|[Pause]||1|16|Sleep|||||
+101|Move|662, 69, 0|1|0|Click|||||
+102|Move|663, 70, 0|1|0|Click|||||
+103|[Pause]||1|31|Sleep|||||
+104|Move|663, 71, 0|1|0|Click|||||
+105|[Pause]||1|16|Sleep|||||
+106|Move|663, 72, 0|1|0|Click|||||
+107|[Pause]||1|16|Sleep|||||
+108|Move|664, 74, 0|1|0|Click|||||
+109|[Pause]||1|31|Sleep|||||
+110|Move|664, 77, 0|1|0|Click|||||
+111|[Pause]||1|15|Sleep|||||
+112|Move|664, 81, 0|1|0|Click|||||
+113|Move|664, 82, 0|1|0|Click|||||
+114|[Pause]||1|16|Sleep|||||
+115|Move|665, 83, 0|1|0|Click|||||
+116|Move|665, 84, 0|1|0|Click|||||
+117|[Pause]||1|16|Sleep|||||
+118|Move|665, 85, 0|1|0|Click|||||
+119|[Pause]||1|15|Sleep|||||
+120|Move|665, 86, 0|1|0|Click|||||
+121|[Pause]||1|219|Sleep|||||
+122|Left Move & Click|665, 86 Left, Down|1|0|Click|||||
+123|[Pause]||1|94|Sleep|||||
+124|Left Move & Click|665, 86 Left, Up|1|0|Click|||||
+125|[Pause]||1|203|Sleep|||||
+126|Move|665, 87, 0|1|0|Click|||||
+127|[Pause]||1|16|Sleep|||||
+128|Move|666, 88, 0|1|0|Click|||||
+129|Move|666, 91, 0|1|0|Click|||||
+130|[Pause]||1|15|Sleep|||||
+131|Move|667, 92, 0|1|0|Click|||||
+132|Move|669, 93, 0|1|0|Click|||||
+133|[Pause]||1|31|Sleep|||||
+134|Move|674, 101, 0|1|0|Click|||||
+135|[Pause]||1|32|Sleep|||||
+136|Move|677, 104, 0|1|0|Click|||||
+137|[Pause]||1|15|Sleep|||||
+138|Move|679, 106, 0|1|0|Click|||||
+139|[Pause]||1|32|Sleep|||||
+140|Move|680, 108, 0|1|0|Click|||||
+141|[Pause]||1|15|Sleep|||||
+142|Move|686, 116, 0|1|0|Click|||||
+143|[Pause]||1|31|Sleep|||||
+144|Move|708, 134, 0|1|0|Click|||||
+145|[Pause]||1|16|Sleep|||||
+146|Move|739, 150, 0|1|0|Click|||||
+147|[Pause]||1|31|Sleep|||||
+148|Move|788, 163, 0|1|0|Click|||||
+149|[Pause]||1|32|Sleep|||||
+150|Move|821, 171, 0|1|0|Click|||||
+151|[Pause]||1|15|Sleep|||||
+152|Move|846, 175, 0|1|0|Click|||||
+153|[Pause]||1|31|Sleep|||||
+154|Move|858, 177, 0|1|0|Click|||||
+155|[Pause]||1|32|Sleep|||||
+156|Move|872, 177, 0|1|0|Click|||||
+157|[Pause]||1|31|Sleep|||||
+158|Move|881, 177, 0|1|0|Click|||||
+159|[Pause]||1|31|Sleep|||||
+160|Move|893, 177, 0|1|0|Click|||||
+161|[Pause]||1|16|Sleep|||||
+162|Move|896, 177, 0|1|0|Click|||||
+163|[Pause]||1|31|Sleep|||||
+164|Move|900, 177, 0|1|0|Click|||||
+165|[Pause]||1|281|Sleep|||||
+166|Left Move & Click|900, 177 Left, Down|1|0|Click|||||
+167|[Pause]||1|94|Sleep|||||
+168|Left Move & Click|900, 177 Left, Up|1|0|Click|||||
+169|[Pause]||1|109|Sleep|||||
+170|Move|980, 170, 0|1|0|Click|||||
+171|[Pause]||1|47|Sleep|||||
+172|Move|1173, 147, 0|1|0|Click|||||
+173|[Pause]||1|235|Sleep|||||
+174|Move|1654, 58, 0|1|0|Click|||||
+175|[Pause]||1|47|Sleep|||||
+176|Move|1656, 57, 0|1|0|Click|||||
+177|[Pause]||1|78|Sleep|||||
+178|Move|1658, 57, 0|1|0|Click|||||
+179|[Pause]||1|47|Sleep|||||
+180|Move|1698, 51, 0|1|0|Click|||||
+181|[Pause]||1|46|Sleep|||||
+182|Move|1718, 48, 0|1|0|Click|||||
+183|[Pause]||1|63|Sleep|||||
+184|Move|1718, 47, 0|1|0|Click|||||
+185|[Pause]||1|47|Sleep|||||
+186|Move|1719, 47, 0|1|0|Click|||||
+187|[Pause]||1|62|Sleep|||||
+188|Move|1720, 45, 0|1|0|Click|||||
+189|[Pause]||1|63|Sleep|||||
+190|Move|1733, 38, 0|1|0|Click|||||
+191|[Pause]||1|62|Sleep|||||
+192|Move|1733, 37, 0|1|0|Click|||||
+193|[Pause]||1|47|Sleep|||||
+194|Move|1738, 36, 0|1|0|Click|||||
+195|[Pause]||1|16|Sleep|||||
+196|Move|1740, 36, 0|1|0|Click|||||
+197|[Pause]||1|78|Sleep|||||
+198|Move|1740, 35, 0|1|0|Click|||||
+199|[Pause]||1|78|Sleep|||||
+200|Move|1741, 33, 0|1|0|Click|||||
+201|[Pause]||1|44766|Sleep|||||
+202|Move|1740, 33, 0|1|0|Click|||||
+203|[Pause]||1|78|Sleep|||||
+204|Move|1735, 31, 0|1|0|Click|||||
+205|[Pause]||1|375|Sleep|||||
+206|Move|1734, 31, 0|1|0|Click|||||
+207|[Pause]||1|47|Sleep|||||
+208|Move|1688, 31, 0|1|0|Click|||||
+209|[Pause]||1|47|Sleep|||||
+210|Move|1636, 31, 0|1|0|Click|||||
+211|[Pause]||1|125|Sleep|||||
+212|Move|1258, 59, 0|1|0|Click|||||
+213|[Pause]||1|46|Sleep|||||
+214|Move|1108, 86, 0|1|0|Click|||||
+215|[Pause]||1|79|Sleep|||||
+216|Move|920, 133, 0|1|0|Click|||||
+217|[Pause]||1|31|Sleep|||||
+218|Move|862, 149, 0|1|0|Click|||||
+219|[Pause]||1|62|Sleep|||||
+220|Move|742, 187, 0|1|0|Click|||||
+221|Move|728, 190, 0|1|0|Click|||||
+222|[Pause]||1|47|Sleep|||||
+223|Move|650, 207, 0|1|0|Click|||||
+224|Move|641, 209, 0|1|0|Click|||||
+225|[Pause]||1|125|Sleep|||||
+226|Move|470, 232, 0|1|0|Click|||||
+227|[Pause]||1|63|Sleep|||||
+228|Move|404, 238, 0|1|0|Click|||||
+229|[Pause]||1|156|Sleep|||||
+230|Move|218, 225, 0|1|0|Click|||||
+231|[Pause]||1|47|Sleep|||||
+232|Move|181, 216, 0|1|0|Click|||||
+233|[Pause]||1|187|Sleep|||||
+234|Move|176, 215, 0|1|0|Click|||||
+
